@@ -11,7 +11,7 @@ class Diary extends Equatable{
   @override
   List<Object> get props => [id];
 
-  // Memo 객체를 데이터베이스에 저장할 수 있게 변경
+  // 객체를 데이터베이스에 저장할 수 있게 변경
   Map<String, dynamic> toMap() {
     return {
       'id': this.id,

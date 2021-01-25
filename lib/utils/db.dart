@@ -50,16 +50,3 @@ class DatabaseHelper {
 
     return list;
   }
-
-  updateDiary(Diary diary) async {
-    collection.doc(diary.id).update({
-      'title': diary.title,
-      'body': diary.body,
-      'updatedAt': Timestamp.now(),
-    });
-  }
-
-  deleteDiary(String id) async {
-    collection.doc(id).delete();
-  }
-}
