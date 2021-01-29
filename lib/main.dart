@@ -4,7 +4,6 @@ import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
 import 'pages/newcreate.dart';
-import 'pages/edit.dart';
 import 'pages/detail.dart';
 import 'utils/db.dart';
 import 'domains/diary.dart';
@@ -64,9 +63,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     DateFormat('yyyy-MM-dd').format(item.updatedAt);
 
                     return ListTile(
+                      //여기서부터
                       onTap: () {
                         _detailDiaryPage(context, item);
                       },
+                      //여기까지
                       title: Text(item.title, style: TextStyle(fontSize: 18)),
                       subtitle: Text(
                         formatDateTime + ' ' + item.body, style: TextStyle(
@@ -100,11 +101,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
     setState(() {});
   }
-  _deleteDiary(String diaryId) async {
-    await DatabaseHelper().deleteDiary(diaryId);
 
-    setState(() {});
-  }
+  //여기서부터
 
   _detailDiaryPage(BuildContext context, Diary diary) async {
     await Navigator.push(context,
@@ -112,5 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     setState(() {});
   }
+  //여기까지
+
 }
 

@@ -58,9 +58,6 @@ class DatabaseHelper {
       'updatedAt': Timestamp.now(),
     });
   }
-  deleteDiary(String id) async {
-    collection.doc(id).delete();
-  }
 }
 
 

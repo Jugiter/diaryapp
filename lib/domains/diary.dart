@@ -11,7 +11,6 @@ class Diary extends Equatable{
   @override
   List<Object> get props => [id];
 
-  // 객체를 데이터베이스에 저장할 수 있게 변경
   Map<String, dynamic> toMap() {
     return {
       'id': this.id,
@@ -21,7 +20,6 @@ class Diary extends Equatable{
     };
   }
 
-  // 데이터베이스에 저장된 메모를 객체로 변환
   factory Diary.fromMap(Map<String, dynamic> data) => new Diary(
     id: data["id"],
     title: data["title"],
