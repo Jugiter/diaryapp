@@ -24,8 +24,8 @@ class EditDiaryWidget extends StatefulWidget {
 }
 
 class _EditDiaryState extends State<EditDiaryWidget> {
-  TextEditingController titleInputController;
-  TextEditingController bodyInputController;
+  TextEditingController titleController;
+  TextEditingController bodyController;
 
   final Diary diary;
 
@@ -35,14 +35,14 @@ class _EditDiaryState extends State<EditDiaryWidget> {
   void initState() {
     super.initState();
 
-    this.titleInputController = TextEditingController(text: diary.title);
-    this.bodyInputController = TextEditingController(text: diary.body);
+    this.titleController = TextEditingController(text: diary.title);
+    this.bodyController = TextEditingController(text: diary.body);
   }
 
   @override
   void dispose() {
-    this.titleInputController.dispose();
-    this.bodyInputController.dispose();
+    this.titleController.dispose();
+    this.bodyController.dispose();
     super.dispose();
   }
 
@@ -62,7 +62,7 @@ class _EditDiaryState extends State<EditDiaryWidget> {
                   decoration: InputDecoration(
                     hintText: 'Title',
                   ),
-                  controller: this.titleInputController,
+                  controller: this.titleController,
                 )),
             TextField(
               decoration: InputDecoration(
@@ -70,13 +70,13 @@ class _EditDiaryState extends State<EditDiaryWidget> {
               ),
               keyboardType: TextInputType.multiline,
               maxLines: null,
-              controller: this.bodyInputController,
+              controller: this.bodyController,
             ),
           ])),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          this.diary.title = titleInputController.text;
-          this.diary.body = bodyInputController.text;
+          this.diary.title = titleController.text;
+          this.diary.body = bodyController.text;
           this.diary.updatedAt = DateTime.now();
 
           DatabaseHelper().updateDiary(this.diary);

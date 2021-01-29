@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../pages/edit.dart';
 
+import '../pages/edit.dart';
 import '../domains/diary.dart';
 
 class DetailDiaryPage extends StatelessWidget {
