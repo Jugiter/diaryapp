@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:diaryapp/domains/diary.dart';
 
 final String collectionName = 'diary';
 
@@ -50,3 +51,16 @@ class DatabaseHelper {
 
     return list;
   }
+  updateDiary(Diary diary) async {
+    collection.doc(diary.id).update({
+      'title': diary.title,
+      'body': diary.body,
+      'updatedAt': Timestamp.now(),
+    });
+  }
+  deleteDiary(String id) async {
+    collection.doc(id).delete();
+  }
+}
+
+
